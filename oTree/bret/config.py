@@ -62,17 +62,17 @@ class Constants(BaseConstants):
     # in case of <dynamic = True>, game play is affected by the variables <time_interval> and <random> below
     # if <dynamic = False>, subjects collect as many boxes as they want by clicking or entering the respective number
     # in case of <dynamic = False>, game play is affected by the variables <random>, <devils_game> and <undoable>
-    dynamic = True
+    dynamic = False
 
     # time interval between single boxes being collected (in seconds)
     # note that this only affects game play if <dynamic = True>
-    time_interval = 1.00
+    time_interval = 0.5
 
     # collect boxes randomly or systematically
     # if <random = False>, boxes are collected row-wise one-by-one, starting in the top-left corner
     # if <random = True>, boxes are collected randomly (Fisher-Yates Algorithm)
     # note that this affects game play in both cases, <dynamic = True> and <dynamic = False>
-    random = True
+    random = False
 
     # determines whether static game play allows for selecting boxes by clicking or by entering a number
     # if <devils_game = True>, game play is similar to Slovic (1965), i.e. boxes are collected by subjects
