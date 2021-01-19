@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block content %}
+    <h3 style="text-align:center">
+        Today or {{ Constants.future_date }} game
+    </h3>
+
+    <p class="instructions">In the following task you will be asked a series of questions.
+        You will need to decide which option you prefer: get a certain amount of money today, or a higher amount of money {{ Constants.future_date }} time.
+		One of your answers will be randomly chosen and paid to you.
+		<br>
+	</p>
+
+	<p style="text-align:left;">
+	</p>
+	{% next_button %}
+{% endblock %}

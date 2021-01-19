@@ -1,0 +1,40 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Reasoning Test
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+<p>
+    In the first part of this study, you will take a short reasoning test.
+</p>
+
+<p>
+    The test has {{ num_questions }} questions and you have {{ time_iq }} minutes to complete as many questions as possible.
+    Your score is the number of correct answers minus the number of incorrect answers.
+    You cannot go back to previous questions but you are allowed to skip as many questions as you like.
+
+</p>
+<p>
+    You will need to select the option that correctly completes the pattern.
+    You can unselect an option by clicking it again if you want to skip a question.<br>
+</p>
+
+<p>
+    For each point you score, we will pay you {{ payment_per_right_raven }} (and you cannot lose money) as part of your additional payment.
+</p>
+<p>
+    When you press "Start test" the test will start.
+</p>
+
+<button class="btn btn-primary btn-large">Start test</button>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

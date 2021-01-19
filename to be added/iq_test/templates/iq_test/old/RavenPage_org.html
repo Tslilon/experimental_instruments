@@ -1,0 +1,232 @@
+{% extends "global/Page.html" %}
+{% load otree static otree_tools %}
+
+{% load staticfiles %} 
+
+{% block title %}
+   Select the missing piece {{ num }}/{{ dem }}
+
+{% endblock %}
+
+{% block content %}
+
+
+    <input type="hidden" name="hidden_answer" value ="-99" id="id_hidden_answer" />
+
+<!--
+<p>
+    You now have {{ remaining_time }} seconds to do as many of the following exercise as you can.
+
+<p>
+-->
+<p>
+    Remember, your score is the number of correct answers minus the number of incorrect answers.
+    You cannot go back to previous questions but you are allowed to skip a question.
+    <u>
+        For each point you score, we will pay you {{ payment_per_right_raven }} (and you cannot lose money).
+    </u>
+</p>
+<p>
+    Please select the option that correctly completes the pattern. <br>
+</p>
+
+<div align="center">
+    <img src="{% static mat %}"/>
+    <br><br>
+</div>
+
+<div align="center">
+<table id="answer_table">
+    <tr>
+        <td>
+            <img src="{% static mat_sol1 %}" id="sol_1"/>
+        </td>
+
+        <td>
+            <img src="{% static mat_sol2 %}" id="sol_2"/>
+        </td>
+
+        <td>
+             <img src="{% static mat_sol3 %}" id="sol_3"/>
+        </td>
+
+        <td>
+            <img src="{% static mat_sol4 %}" id="sol_4"/>
+        </td>
+
+    </tr>
+
+    <tr>
+        <td>
+            <img src="{% static mat_sol5 %}" id="sol_5"/>
+        </td>
+
+        <td>
+            <img src="{% static mat_sol6 %}" id="sol_6"/>
+        </td>
+
+        <td>
+            <img src="{% static mat_sol7 %}" id="sol_7"/>
+        </td>
+
+        <td>
+            <img src="{% static mat_sol8 %}" id="sol_8"/>
+        </td>
+    </tr>
+</table>
+</div>
+
+<div align="center">
+    <font color="red">
+        {{ form.hidden_answer.errors }}
+    </font>
+</div>
+
+    <br>
+
+
+  <div align="center">
+   <button class="btn btn-primary btn-lg" id="next_button">Next</button>
+  </div>
+
+{% endblock %}
+
+{% block styles %}
+    <style type="text/css">
+        .normal {
+            border:3px solid transparent;
+        }
+
+        .highlighted {
+            border:3px solid #FF0000;
+            box-shadow:0px 12px 22px 1px #333;
+        }
+        #sol_1:hover {
+            cursor: pointer;
+        }
+        #sol_2:hover {
+            cursor: pointer;
+        }
+        #sol_3:hover {
+            cursor: pointer;
+        }
+        #sol_4:hover {
+            cursor: pointer;
+        }
+        #sol_5:hover {
+            cursor: pointer;
+        }
+        #sol_6:hover {
+            cursor: pointer;
+        }
+        #sol_7:hover {
+            cursor: pointer;
+        }
+        #sol_8:hover {
+            cursor: pointer;
+        }
+
+    </style>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+
+    var ImageSelector = function() {
+        var imgs = null;
+        var selImg = null;
+
+        return {
+            addImages: function(container) {
+                imgs = container.getElementsByTagName("img");
+                for(var i = 0, len = imgs.length; i < len; i++) {
+                    var img = imgs[i];
+                    img.className = "normal";
+                    img.onclick = function()  {
+                        if(selImg)   {
+                            selImg.className = "normal";
+                        }
+                        this.className = (target.className === "highlighted") ? "normal" : "highlighted";
+                    };
+                }
+            }
+        };
+    }();
+
+</script>
+
+<script type="text/javascript">
+    var div = document.getElementById("answer_table");
+    ImageSelector.addImages(div);
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#sol_1').click(function () {
+            if ($('#id_hidden_answer').val() == 1) {
+                $('#id_hidden_answer').val(-99);
+            } else {
+                $('#id_hidden_answer').val(1);
+            }
+        })
+        $('#sol_2').click(function () {
+            if ($('#id_hidden_answer').val() == 2) {
+                $('#id_hidden_answer').val(-99);
+            } else {
+                $('#id_hidden_answer').val(2);
+            }
+        })
+        $('#sol_3').click(function () {
+            if ($('#id_hidden_answer').val() == 3) {
+                $('#id_hidden_answer').val(-99);
+            } else {
+                $('#id_hidden_answer').val(3);
+            }
+        })
+        $('#sol_4').click(function () {
+            if ($('#id_hidden_answer').val() == 4) {
+                $('#id_hidden_answer').val(-99);
+            } else {
+                $('#id_hidden_answer').val(4);
+            }
+        })
+        $('#sol_5').click(function () {
+            if ($('#id_hidden_answer').val() == 5) {
+                $('#id_hidden_answer').val(-99);
+            } else {
+                $('#id_hidden_answer').val(5);
+            }
+        })
+        $('#sol_6').click(function () {
+            if ($('#id_hidden_answer').val() == 6) {
+                $('#id_hidden_answer').val(-99);
+            } else {
+                $('#id_hidden_answer').val(6);
+            }
+        })
+        $('#sol_7').click(function () {
+            if ($('#id_hidden_answer').val() == 7) {
+                $('#id_hidden_answer').val(-99);
+            } else {
+                $('#id_hidden_answer').val(7);
+            }
+        })
+        $('#sol_8').click(function () {
+            if ($('#id_hidden_answer').val() == 8) {
+                $('#id_hidden_answer').val(-99);
+            } else {
+                $('#id_hidden_answer').val(8);
+            }
+        })
+    });
+</script>
+
+<!--<script>
+   $(document).ready(function(){
+      document.getElementById("next_button").disabled = true;
+      setTimeout(function(){document.getElementById("next_button").disabled = false;}, 10000); 
+    })
+</script>
+-->
+{% endblock %}
+

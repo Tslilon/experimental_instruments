@@ -1,0 +1,22 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block content %}
+    <div class="instructions">
+    <p>
+        You have completed all problems.
+    </p>
+    <p>
+        You have correctly solved {{ total_correct }} problems.
+    </p>
+     <p style="display: none">
+        Your total payment for this part is {{ earnings }}.
+    </p>
+    </div>
+{% next_button %}
+
+{% endblock %}

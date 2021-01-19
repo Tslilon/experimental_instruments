@@ -1,0 +1,96 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree static %}
+{% load i18n %}
+
+{% block app_styles %}
+
+    <style type="text/css">
+    #tabelle{
+        width: auto;
+        height: auto;
+    }
+    #total {
+        width: 100%;
+        height: 600px;
+    }
+    #Title2 {
+        text-align: center;
+    }
+    .img {
+        width: 127px;
+        height: 83px;
+    }
+    .payoff1 {
+        text-align: center;
+        margin-bottom: 0px;
+        font-size: 20pt;
+    }
+    .payoff2 {
+        text-align: center;
+        margin-bottom: 0px;
+        font-size: 20pt;
+    }
+    #button1, #button2 {
+        width: 70px;
+        font-size: 20pt;
+    }
+    </style>
+
+{% endblock %}
+
+{% block content %}
+{% if player.show == 1 %}
+    <h1 style="text-align:center">
+        Your Decision
+    </h1>
+    <div class="wrapper">
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        <!-- Progress Bar -->
+        <!-- ------------------------------------------------------------------------------------------------------- -->
+        {% if Constants.progress_bar == True %}
+            <label>
+                {% blocktrans trimmed with page=page total=total %}
+                    Decision {{ page }} of {{ total }}
+                {% endblocktrans %}
+            </label>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width:{{ progress|json }}%;">
+                    <span class="sr-only"></span>
+                </div>
+            </div>
+        {% endif %}
+    <div id="total">
+
+        <table id="tabelle" align="center" style="width:100%; table-layout: fixed;">
+            <tr height="50px"></tr>
+            <tr>
+                <td colspan="3" align="center"><p id="Title2" style="font-size:20pt;">What do you prefer?</p></td>
+            </tr>
+            <tr height="50px"></tr>
+            <tr>
+                <td width="45%">
+                    <p class="payoff1" > {{player.L}}$ today?</p>
+                </td>
+                <td colspan="1" width="10%" style="text-align:center;font-size: 20pt;">or</td>
+                <td width="45%" >
+                    <p class="payoff2"> {{player.R}}$ {{ Constants.future_date }}?</p>
+                </td>
+            </tr>
+
+            <tr height="20px"></tr>
+
+            <tr>
+                <td colspan="1" align="center">
+                    <button id="button1" name="decision" value="False" class="btn btn-primary btn-large">L</button>
+                </td>
+                <td></td>
+                <td colspan="1" align="center">
+                    <button id="button2" name="decision" value="True" class="btn btn-primary btn-large">R</button>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+    </div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,228 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% load staticfiles %}
+
+{% block title %}
+IQ test - {{ num }}/{{ dem }}
+
+{% endblock %}
+
+{% block content %}
+
+<input type="hidden" name="hidden_answer" value ="-99" id="id_hidden_answer" />
+
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-9 col-md-6">
+            <img src="{% static mat %}" class="img-fluid mx-auto d-block"/>
+        </div>
+    </div>
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-9 col-md-6">
+
+                <table class="d-flex justify-content-center" id="answer_table">
+                    <tr>
+                        <td>
+                            <img class="normal answer_button" src="{% static mat_sol1 %}" id="sol_1"/>
+                        </td>
+
+                        <td>
+                            <img class="normal answer_button" src="{% static mat_sol2 %}" id="sol_2"/>
+                        </td>
+
+                        <td>
+                             <img class="normal answer_button" src="{% static mat_sol3 %}" id="sol_3"/>
+                        </td>
+
+                        <td>
+                            <img class="normal answer_button" src="{% static mat_sol4 %}" id="sol_4"/>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <img class="normal answer_button" src="{% static mat_sol5 %}" id="sol_5"/>
+                        </td>
+
+                        <td>
+                            <img class="normal answer_button" src="{% static mat_sol6 %}" id="sol_6"/>
+                        </td>
+
+                        <td>
+                            <img class="normal answer_button" src="{% static mat_sol7 %}" id="sol_7"/>
+                        </td>
+                        <td>
+                            <img class="normal answer_button" src="{% static mat_sol8 %}" id="sol_8"/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <br>
+            <br>
+            <button style="float: right" class="btn btn-primary btn-large" id="id_next_button">Next Question</button>
+        </div>
+        <div class="col-12">
+
+            {{ form.hidden_answer.errors }}
+
+        </div>
+    </div>
+</div>
+
+<div align="center">
+        </div>
+
+
+
+{% endblock %}
+
+{% block styles %}
+    <style type="text/css">
+
+        #sol_1:hover {
+            cursor: pointer;
+        }
+        #sol_2:hover {
+            cursor: pointer;
+        }
+        #sol_3:hover {
+            cursor: pointer;
+        }
+        #sol_4:hover {
+            cursor: pointer;
+        }
+        #sol_5:hover {
+            cursor: pointer;
+        }
+        #sol_6:hover {
+            cursor: pointer;
+        }
+        #sol_7:hover {
+            cursor: pointer;
+        }
+        #sol_8:hover {
+            cursor: pointer;
+        }
+
+    </style>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+
+    var ImageSelector = function() {
+        var imgs = null;
+        var selImg = null;
+
+        return {
+            addImages: function(container) {
+                imgs = container.getElementsByTagName("img");
+                for(var i = 0, len = imgs.length; i < len; i++) {
+                    var img = imgs[i];
+                    img.className = "normal";
+                    img.onclick = function()  {
+                        if (this.className == "highlighted") {
+                            selImg = null;
+                            this.className = "normal";
+                        } else {
+                          if(selImg)   {
+                             selImg.className = "normal";
+                          }
+                          this.className = "highlighted";
+                          selImg = this;
+                        }
+                    };
+                }
+            }
+        };
+    }();
+</script>
+
+<script type="text/javascript">
+    var div = document.getElementById("answer_table");
+    ImageSelector.addImages(div);
+</script>
+
+<script type="text/javascript">
+    var num = {{ num|json }};
+    var dem = {{ dem|json }};
+    if (num == dem) {
+        var button = document.getElementById("id_next_button");
+        button.innerHTML = "Next";
+    }
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#sol_1').click(function () {
+            if ($('#id_hidden_answer').val() == 1) {
+                $('#id_hidden_answer').val(-99);
+            } else {
+                $('#id_hidden_answer').val(1);
+            }
+        })
+        $('#sol_2').click(function () {
+            if ($('#id_hidden_answer').val() == 2) {
+                $('#id_hidden_answer').val(-99);
+            } else {
+                $('#id_hidden_answer').val(2);
+            }
+        })
+        $('#sol_3').click(function () {
+            if ($('#id_hidden_answer').val() == 3) {
+                $('#id_hidden_answer').val(-99);
+            } else {
+                $('#id_hidden_answer').val(3);
+            }
+        })
+        $('#sol_4').click(function () {
+            if ($('#id_hidden_answer').val() == 4) {
+                $('#id_hidden_answer').val(-99);
+            } else {
+                $('#id_hidden_answer').val(4);
+            }
+        })
+        $('#sol_5').click(function () {
+            if ($('#id_hidden_answer').val() == 5) {
+                $('#id_hidden_answer').val(-99);
+            } else {
+                $('#id_hidden_answer').val(5);
+            }
+        })
+        $('#sol_6').click(function () {
+            if ($('#id_hidden_answer').val() == 6) {
+                $('#id_hidden_answer').val(-99);
+            } else {
+                $('#id_hidden_answer').val(6);
+            }
+        })
+        $('#sol_7').click(function () {
+            if ($('#id_hidden_answer').val() == 7) {
+                $('#id_hidden_answer').val(-99);
+            } else {
+                $('#id_hidden_answer').val(7);
+            }
+        })
+        $('#sol_8').click(function () {
+            if ($('#id_hidden_answer').val() == 8) {
+                $('#id_hidden_answer').val(-99);
+            } else {
+                $('#id_hidden_answer').val(8);
+            }
+        })
+    });
+</script>
+
+
+
+{% endblock %}
+
+
