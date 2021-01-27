@@ -11,13 +11,73 @@ SESSION_CONFIG_DEFAULTS = {
     'doc': "",
 }
 
-SESSION_CONFIGS = [{
-    'name': 'bret',
-    'display_name': 'Bomb Risk Elicitation Task',
-    'num_demo_participants': 1,
-    'app_sequence': ['bret'],
-    },
+SESSION_CONFIGS = [
+    {
+        "name": "test_session",
+        "display_name": "Test Session",
+        "num_demo_participants": 1,
+        "app_sequence": ['pre_slider', 
+                        'ravens', 
+                        'post_slider', 
+                        'pre_prob', 
+                        'post_prob'],
+    }
+
 ]
+
+
+
+# [
+
+#     {
+#     	'name': 'bret',
+#     	'display_name': 'Bomb Risk Elicitation Task',
+#     	'num_demo_participants': 1,
+#     	'app_sequence': ['bret', ],
+#     }, 
+#     {
+#         'name': 'pre_slider',
+#         'display_name': "Pre-Task Self-Rating",
+#         'num_demo_participants': 1,
+#         'app_sequence': ['pre_slider', ],
+#     },
+#     {
+#         'name': 'radioselect_pre',
+#         'display_name': "Pre-Task Self-Rating V2",
+#         'num_demo_participants': 1,
+#         'app_sequence': ['radioselect_pre', ],
+#     },
+#     {
+#         'name': 'iq_test',
+#         'display_name': "Raven's Test",
+#         'num_demo_participants': 1,
+#         'app_sequence': ['iq_test', ],
+#     },
+#     {
+#         'name': 'ravens',
+#         'display_name': "Raven's Test",
+#         'num_demo_participants': 1,
+#         'app_sequence': ['ravens', ],
+#     },
+#     {
+#         'name': 'post_slider',
+#         'display_name': "Post-Task Self-Rating",
+#         'num_demo_participants': 1,
+#         'app_sequence': ['post_slider', ],
+#     },
+#     {
+#         'name': 'pre_prob',
+#         'display_name': "Pre-Info Probability",
+#         'num_demo_participants': 1,
+#         'app_sequence': ['pre_prob', ],
+#     },
+#     {
+#         'name': 'post_prob',
+#         'display_name': "Post-Info Probability",
+#         'num_demo_participants': 1,
+#         'app_sequence': ['post_prob', ],
+#     },
+# ]
 
 # ISO-639 code
 # for example: de, fr, ja, ko, zh-hans
@@ -38,4 +98,4 @@ DEMO_PAGE_INTRO_HTML = """ """
 SECRET_KEY = 'r=-3zk)@=f38^)%j#&$4m3c*)7y55ly6s*ww-fwjtzjhb54ude'
 
 # if an app is included in SESSION_CONFIGS, you don't need to list it here
-INSTALLED_APPS = ['otree']
+INSTALLED_APPS = ['pre_slider', 'ravens', 'post_slider', 'pre_prob', 'post_prob']
