@@ -11,11 +11,13 @@ from otree.api import (
 import random
 from django.conf import settings
 
+
 class Constants(BaseConstants):
     # oTree Constants
     name_in_url = "post_slider"
     players_per_group = None
     num_rounds = 1
+
 
 def random_initial():
     return random.uniform(0,10)
