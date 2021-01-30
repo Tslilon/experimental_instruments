@@ -1,0 +1,35 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+<head>
+{% block title %}Probability Guess{% endblock %}
+
+{% block scripts %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    var $label = $('<label>0%</label>').css({"position": "absolute", "left": "17%"}); 
+    $('.controls').append($label);
+    
+    var $label = $('<label>100%</label>').css({"position": "absolute", "left": "39%"}); 
+    $('.controls').append($label);
+});
+</script>
+{% endblock %}
+</head>
+
+{% block content %}
+    <div class="instructions">
+      <p>
+    	Please answer the following question to your best knowledge: <br>
+</div>
+</br>
+	
+<div class="bar">
+    <div class="picker">{% formfield player.probability %} </div>
+</div>
+</br>
+
+{% next_button %}
+
+{% endblock %}

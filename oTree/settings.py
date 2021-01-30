@@ -13,15 +13,11 @@ SESSION_CONFIG_DEFAULTS = {
 
 SESSION_CONFIGS = [
     {
-        "name": "test_session",
-        "display_name": "Test Session",
-        "num_demo_participants": 1,
-        "app_sequence": ['pre_slider', 
-                        'ravens', 
-                        'post_slider', 
-                        'pre_prob', 
-                        'post_prob'],
-    }
+      'name': 'test_session',
+      'display_name': 'Test Session',
+      'num_demo_participants': 1,
+      'app_sequence': ['test_session', ],
+    }, 
 
 ]
 
@@ -98,4 +94,4 @@ DEMO_PAGE_INTRO_HTML = """ """
 SECRET_KEY = 'r=-3zk)@=f38^)%j#&$4m3c*)7y55ly6s*ww-fwjtzjhb54ude'
 
 # if an app is included in SESSION_CONFIGS, you don't need to list it here
-INSTALLED_APPS = ['pre_slider', 'ravens', 'post_slider', 'pre_prob', 'post_prob']
+INSTALLED_APPS = ['test_session']
