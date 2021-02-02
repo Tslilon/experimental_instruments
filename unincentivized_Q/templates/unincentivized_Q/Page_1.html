@@ -1,0 +1,22 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Page 1 Title
+{% endblock %}
+
+{% block content %}
+
+{% formfield player.Q1 %}
+{% formfield player.Q2 %}
+{% formfield player.Q3 %}
+
+<div class="bar">
+    <div class="picker">{% formfield player.Q4 %} </div>
+</div>
+
+
+
+{% next_button %}
+
+{% endblock %}

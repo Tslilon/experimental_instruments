@@ -1,0 +1,49 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    <div style="text-align:center">
+    {{ Constants.raven_intro_title }}
+{% endblock %}
+
+{% block content %}
+    <div style="text-align:center">
+    <div class="instructions">
+        <p >
+            {{ Constants.raven_intro_para_1 }}
+        </p>
+
+        <p >
+            {% if Constants.payment_in_points > 0 %}
+            {{ Constants.raven_intro_para_2 }}
+            {% else %}
+            {{ Constants.raven_intro_para_3 }}
+            {% endif %}
+            <br> <b>{{ Constants.raven_intro_para_4 }}</b>
+        </p>
+
+    </div>
+
+    <p>
+        <b>{{ Constants.raven_intro_para_5 }}</b>
+    </p>
+
+    <br/>
+
+
+    <div class="raven_pic">
+    <img src="{% static "ravens/example.jpg" %}"/>
+
+    <br/>
+    </div>
+
+
+    <div>
+	<br/>
+        <p> {{ Constants.raven_intro_para_6 }} </p>
+        <br/>
+    </div>
+    {% next_button %}
+
+
+{% endblock %}

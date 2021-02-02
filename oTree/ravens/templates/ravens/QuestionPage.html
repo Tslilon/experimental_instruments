@@ -1,0 +1,25 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    <div style="text-align:center">
+    {{ Constants.raven_question_title_part1 }} {{ player.round_number }} {{ Constants.raven_question_title_part2 }}
+
+{% endblock %}
+
+
+{% block content %}
+    <div style="text-align:center">
+    <div class="raven_pic">
+     <!--<img src="{% static image_path %}" height="450" width="420"/>-->
+    <img src="{% static image_path %}" height="400" width="380"/>
+    {# <img src="{% static "ravens/example.jpg" %}"/> #}
+    </div class="raven_pic">
+
+    {#    <div class="form-group required">#}
+    {% formfield player.answer %}
+    {#    </div>#}
+
+    {% next_button %}
+
+{% endblock %}
