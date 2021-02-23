@@ -5,83 +5,56 @@ from os import environ
 # the session config can be accessed from methods in your apps as self.session.config,
 # e.g. self.session.config['participation_fee']
 
+LANGUAGE_CODE = 'en' #Switch between English and Hebrew
+RANDOMIZATION = True #True for random session, False for admin control (manually assign treatment)
+
+
 SESSION_CONFIG_DEFAULTS = {
     'real_world_currency_per_point': 10.00,
     'participation_fee': 0.00,
     'doc': "",
 }
 
-SESSION_CONFIGS = [
-    {
-        "name": "test_session",
-        "display_name": "Test Session",
-        "num_demo_participants": 1,
-        "app_sequence": ['pre_slider', 
-                        'ravens', 
-                        'post_slider', 
-                        'pre_prob', 
-                        'post_prob'],
-    }
+# if RANDOMIZATION == True:
+#     SESSION_CONFIGS = [
+#     {
+#       'name': 'test_session_randomized',
+#       'display_name': 'Test Session Randomized',
+#       'app_sequence': ['ravens', 'confidence_info_treatment'],
+#       'num_demo_participants': 1,
+#     }]
+# else:
+#     SESSION_CONFIGS = [
+#     {
+#       'name': 'test_session_with_info',
+#       'display_name': 'Test Session with Info',
+#       'app_sequence': ['ravens', 'confidence_info_treatment'],
+#       'num_demo_participants': 1,
+#       'treatment': 'with_info'
+#     }, 
+#     {
+#       'name': 'test_session_without_info',
+#       'display_name': 'Test Session without Info',
+#       'app_sequence': ['ravens', ],
+#       'num_demo_participants': 1,
+#       'treatment': 'without_info'
+#     }]
 
-]
+SESSION_CONFIGS = [{
+  'name': 'questionnaire',
+  'display_name': 'Questionnaire',
+  'app_sequence': ['unincentivized_Q'],
+  'num_demo_participants': 1,
+}]
 
-
-
-# [
-
+# SESSION_CONFIGS = [
 #     {
 #     	'name': 'bret',
 #     	'display_name': 'Bomb Risk Elicitation Task',
 #     	'num_demo_participants': 1,
 #     	'app_sequence': ['bret', ],
-#     }, 
-#     {
-#         'name': 'pre_slider',
-#         'display_name': "Pre-Task Self-Rating",
-#         'num_demo_participants': 1,
-#         'app_sequence': ['pre_slider', ],
-#     },
-#     {
-#         'name': 'radioselect_pre',
-#         'display_name': "Pre-Task Self-Rating V2",
-#         'num_demo_participants': 1,
-#         'app_sequence': ['radioselect_pre', ],
-#     },
-#     {
-#         'name': 'iq_test',
-#         'display_name': "Raven's Test",
-#         'num_demo_participants': 1,
-#         'app_sequence': ['iq_test', ],
-#     },
-#     {
-#         'name': 'ravens',
-#         'display_name': "Raven's Test",
-#         'num_demo_participants': 1,
-#         'app_sequence': ['ravens', ],
-#     },
-#     {
-#         'name': 'post_slider',
-#         'display_name': "Post-Task Self-Rating",
-#         'num_demo_participants': 1,
-#         'app_sequence': ['post_slider', ],
-#     },
-#     {
-#         'name': 'pre_prob',
-#         'display_name': "Pre-Info Probability",
-#         'num_demo_participants': 1,
-#         'app_sequence': ['pre_prob', ],
-#     },
-#     {
-#         'name': 'post_prob',
-#         'display_name': "Post-Info Probability",
-#         'num_demo_participants': 1,
-#         'app_sequence': ['post_prob', ],
-#     },
-# ]
+#     }]
 
-# ISO-639 code
-# for example: de, fr, ja, ko, zh-hans
-LANGUAGE_CODE = 'en'
 
 # e.g. EUR, GBP, CNY, JPY
 REAL_WORLD_CURRENCY_CODE = 'USD'
@@ -98,4 +71,6 @@ DEMO_PAGE_INTRO_HTML = """ """
 SECRET_KEY = 'r=-3zk)@=f38^)%j#&$4m3c*)7y55ly6s*ww-fwjtzjhb54ude'
 
 # if an app is included in SESSION_CONFIGS, you don't need to list it here
-INSTALLED_APPS = ['pre_slider', 'ravens', 'post_slider', 'pre_prob', 'post_prob']
+# INSTALLED_APPS = ['bret']
+# INSTALLED_APPS = ['ravens', 'confidence_info_treatment']
+INSTALLED_APPS = ['unincentivized_Q']

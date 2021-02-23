@@ -20,12 +20,12 @@ msgstr ""
 # title/heading of the decision page
 #: .\templates\bret\Decision.html:59
 msgid "Your Decision"
-msgstr "Ihre Entscheidung"
+msgstr "您的决定"
 
 # label for counter below the boxes
 #: .\templates\bret\Decision.html:126
 msgid "No. of boxes collected:"
-msgstr "Anzahl der gesammelten Boxen:"
+msgstr "已收集的盒子数量"
 
 # label for counter below the boxes
 #: .\templates\bret\Decision.html:133

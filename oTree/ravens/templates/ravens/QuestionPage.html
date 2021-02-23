@@ -2,13 +2,14 @@
 {% load staticfiles otree %}
 
 {% block title %}
+    <div style="text-align:center">
+    {{ Constants.raven_question_title1 }} {{ player.round_number }} {{ Constants.raven_question_title2 }}
 
 {% endblock %}
 
 
 {% block content %}
-<p><b>Question {{ player.round_number }} of {{ Constants.num_rounds }} </b></p>
-
+    <div style="text-align:center">
     <div class="raven_pic">
      <!--<img src="{% static image_path %}" height="450" width="420"/>-->
     <img src="{% static image_path %}" height="400" width="380"/>
@@ -16,9 +17,8 @@
     </div class="raven_pic">
 
     {#    <div class="form-group required">#}
-    {% formfield player.answer label='Please choose an item that best fits the pattern:' %}
+    {% formfield player.answer %}
     {#    </div>#}
-
 
     {% next_button %}
 

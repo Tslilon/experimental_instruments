@@ -1,8 +1,13 @@
 {% extends "global/Page.html" %}
 {% load otree staticfiles %}
 
-{% block title %}Introduction{% endblock %}
-    {% block content %}
+{% block title %}
+    <div style="text-align:center">
+    Introduction
+{% endblock %}
+
+{% block content %}
+    <div style="text-align:center">
     <div class="instructions">
         <p >
             You will be presented with {{ Constants.num_rounds }} problems,

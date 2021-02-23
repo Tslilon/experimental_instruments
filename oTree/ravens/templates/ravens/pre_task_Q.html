@@ -1,0 +1,42 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+<head>
+{% block title %}
+    <div style="text-align:center">
+    {{ Constants.pre_title }}
+{% endblock %}
+
+{% block scripts %}
+<div style="text-align:center">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    var $label = $('<label>{{ Constants.pre_left_label }}</label>').css({"position": "absolute", "left": "39%"}); 
+    $('.controls').append($label);
+    
+    var $label = $('<label>{{ Constants.pre_right_label }}</label>').css({"position": "absolute", "left": "55%"}); 
+    $('.controls').append($label);
+});
+</script>
+{% endblock %}
+</head>
+
+{% block content %}
+    <div style="text-align:center">
+    <div class="instructions">
+      <p>
+    	{{ Constants.pre_instruction1 }} <br> {{ Constants.pre_instruction2 }} <br>
+</div>
+</br>
+	
+<div class="bar">
+    <div class="picker" style="display: flex; justify-content: center">{% formfield player.self_rating1 %}</div>
+</div>
+
+</br>
+
+{% next_button %}
+
+{% endblock %}
+
