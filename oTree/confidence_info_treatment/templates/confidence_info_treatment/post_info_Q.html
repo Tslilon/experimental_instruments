@@ -1,0 +1,40 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+<head>
+{% block title %}
+    <div style="text-align:center">
+    {{ Constants.prob_title }}
+{% endblock %}
+
+{% block scripts %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    var $label = $('<label>{{ Constants.prob_left_label }}</label>').css({"position": "absolute", "left": "38%"}); 
+    $('.controls').append($label);
+    
+    var $label = $('<label>{{ Constants.prob_right_label }}</label>').css({"position": "absolute", "left": "56%"}); 
+    $('.controls').append($label);
+});
+</script>
+{% endblock %}
+</head>
+
+{% block content %}
+    <div style="text-align:center">
+    <div class="instructions">
+      <p>
+    	<strong>{{ Constants.prob_instruction1 }} </strong><br>
+        {{ Constants.prob_instruction2 }}
+</div>
+</br>
+	
+<div class="bar">
+    <div class="picker" style="display: flex; justify-content: center">{% formfield player.probability %} </div>
+</div>
+</br>
+
+{% next_button %}
+
+{% endblock %}

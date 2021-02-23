@@ -1,0 +1,28 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+<div style="text-align:center">
+    Identity Verification
+{% endblock %}
+
+{% block content %}
+
+<div class="email">
+        <p >
+            First, we would like to confirm you email address.
+        </p>
+
+        <p >
+            It is important for our study that we have the email address that is listed in DRUSHIM.CO.IL. Matching your email to the one used in Drushim's smart agent is a condition to participate in the prize lottery / for reward.
+        </p>
+        
+        <strong>{% formfield player.email %}</strong>
+
+</div>
+
+<div style="text-align:center">
+
+{% next_button %}
+
+{% endblock %}

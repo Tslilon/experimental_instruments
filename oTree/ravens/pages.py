@@ -5,6 +5,14 @@ from .models import Constants
 import random
 import time
 
+class pre_task_Q(Page):
+
+    def is_displayed(self):
+        return self.round_number == 1
+
+    form_model = 'player'
+    form_fields = ['self_rating1']
+
 class StartPage(Page):
     def is_displayed(self):
         if self.round_number == 1:
@@ -33,7 +41,9 @@ class QuestionPage(Page):
 
 
     def vars_for_template(self):
-        return {'image_path': 'ravens/{}.jpg'.format(self.round_number)}
+        if self.round_number == 1:
+            random.shuffle(self.participant.vars['Q_seq'])
+        return {'image_path': 'ravens/{}.jpg'.format(self.participant.vars['Q_seq'][self.round_number - 1])}
 
     def before_next_page(self):
         if self.timeout_happened:
@@ -50,7 +60,7 @@ class QuestionPage(Page):
 class Results(Page):
 
     def is_displayed(self):
-        return self.round_number == Constants.num_rounds
+        return False
 
     def vars_for_template(self):
         return {
@@ -64,9 +74,30 @@ class Results(Page):
                                                    Constants.payment_per_question)
 
 
+class post_task_Q(Page):
+
+    def is_displayed(self):
+        return self.round_number == 12
+
+    form_model = 'player'
+    form_fields = ['self_rating2']
+
+class pre_info_Q(Page):
+
+    def is_displayed(self):
+        return self.round_number == 12
+
+    form_model = 'player'
+    form_fields = ['probability']
+
+
+
 page_sequence = [
+    pre_task_Q,
     #StartPage,
     Introduction,
     QuestionPage,
-    Results
+    Results,
+    post_task_Q,
+    pre_info_Q
 ]
